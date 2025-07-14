@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkVault | Your Personal Link SaaS</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for Easy Themeing */
+        :root {
+            --primary-color: #4F46E5;
+            --primary-hover: #4338CA;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --success-bg: #f0fdf4;
+            --success-text: #166534;
+            --success-border: #86efac;
+            --error-bg: #fff1f2;
+            --error-text: #be123c;
+            --error-border: #fda4af;
+        }
+
+        /* Basic Reset and Body Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        header h1 span {
+            color: var(--primary-color);
+        }
+
+        /* Main Container for Cards */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* General Card Styling */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: none;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* Form Element Styling */
+        input[type="text"], input[type="search"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        input[type="text"]:focus, input[type="search"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+        
+        form > * + * { /* Adds space between form elements */
+            margin-top: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Status Message Styling (Save Link) */
+        #response {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Success & Error Styling */
+        .success, .error {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .success {
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid var(--success-border);
+        }
+        
+        .error {
+            background-color: var(--error-bg);
+            color: var(--error-text);
+            border: 1px solid var(--error-border);
+        }
+
+        /* Search Results Styling */
+        #searchResults {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .result-card {
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            transition: box-shadow 0.2s;
+        }
+
+        .result-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .result-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .result-card a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .result-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            word-break: break-all; /* Prevents long URLs from overflowing */
+        }
+        /* Add this to your existing <style> block */
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Add this to your existing <style> block */
+
+.actions-container {
+    margin-top: 1rem;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    font-weight: 500;
+    width: auto; /* Make it fit the content */
+    padding: 0.5rem 1rem;
+}
+
+.secondary-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.tag-button {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px; /* Pill shape */
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tag-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Link<span>Vault</span></h1>
+    </header>
+
+    <main class="container">
+        <!-- Card for Saving a New Link -->
+        <div class="card" id="save-link-card">
+            <h2>Save a New Link</h2>
+            <form id="linkForm">
+                <div>
+                    <label for="url">URL:</label>
+                    <input type="text" id="url" name="url" placeholder="https://example.com" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description" placeholder="A great example site" required>
+                </div>
+                <button type="submit">Save Link</button>
+            </form>
+            <div id="response"></div>
+        </div>
+
+        <!-- Card for Searching Links -->
+        <div class="card" id="search-links-card">
+            <h2>Search Your Links</h2>
+            <form id="searchForm">
+                <div>
+                    <label for="searchQuery">Search by keyword</label>
+                    <input type="search" id="searchQuery" name="searchQuery" placeholder="e.g., n8n, design, project...">
+                </div>
+                <button type="submit">Search</button>
+            </form>
+             <!-- ▼▼▼ START OF CHANGES ▼▼▼ -->
+    <div class="actions-container">
+        <button type="button" id="show-tags-btn" class="secondary-button">See Tags</button>
+    </div>
+             <div id="tag-container" class="tag-container">
+        <!-- Tags will be dynamically added here by JavaScript -->
+            </div>
+            <div id="searchResults"></div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
