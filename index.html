@@ -3,99 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eatas - Meal Analyzer</title>
+    <title>eatas — SaaS Nutrition Analyzer</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for the theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="main-container">
+    
+    <div class="grid-background"></div>
+    <div class="dashboard-container">
         <header>
             <h1 class="brand-title">eatas</h1>
-            <!-- NEW: Register User Button -->
-            <button class="register-btn" id="register-user-btn">Register User</button>
+            <button class="register-btn" id="register-user-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a5.5 5.5 0 0 1 5.5 5.5c0 1.54-.64 2.94-1.69 3.92L16.5 14H7.5l.69-2.08a5.5 5.5 0 0 1-2.69-5.42A5.5 5.5 0 0 1 12 2.5zM8.5 16.5a7.5 7.5 0 0 0-5.45 2.42.75.75 0 0 0 1.2 1.16A5.99 5.99 0 0 1 8.5 18h7a5.99 5.99 0 0 1 4.25 2.08.75.75 0 0 0 1.2-1.16A7.5 7.5 0 0 0 15.5 16.5h-7z"></path></svg>
+                <span>Register User</span>
+            </button>
         </header>
 
         <main>
-            <!-- SECTION 1: INPUT FORM -->
+            <!-- SECTION 1: Input Form -->
             <section class="card" id="input-card">
+                <div class="card-header">
+                    <h2>Analyze Meal Nutrition</h2>
+                    <p>Enter a meal description and user to receive a detailed AI analysis.</p>
+                </div>
                 <form id="meal-form">
-                    <input type="text" id="meal-name" name="mealName" placeholder="meal name" required>
-                    <input type="text" id="user-name" name="userName" placeholder="user name" required>
-                    <button type="submit" class="cta-button">start</button>
+                    <div class="input-group">
+                        <label for="meal-name">Meal Description</label>
+                        <input type="text" id="meal-name" name="mealName" placeholder="e.g., Grilled chicken breast with quinoa and steamed broccoli" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="user-name">Registered User Name</label>
+                        <input type="text" id="user-name" name="userName" placeholder="e.g., Alex Ray" required>
+                    </div>
+                    <button type="submit" class="cta-button">Generate Analysis</button>
                 </form>
             </section>
 
             <!-- SECTION 2: SUGGESTIONS -->
             <section id="suggestions-section">
-                <div class="card-grid">
-                    <div class="suggestion-card">chicken salad</div>
-                    <div class="suggestion-card">avocado toast</div>
-                    <div class="suggestion-card">protein shake</div>
-                    <div class="suggestion-card">salmon & rice</div>
+                <p class="suggestions-title">Quick Starts</p>
+                <div class="suggestions-grid">
+                    <button class="suggestion-tag">chicken salad</button>
+                    <button class="suggestion-tag">protein shake</button>
+                    <button class="suggestion-tag">salmon & rice</button>
+                    <button class="suggestion-tag">avocado toast</button>
                 </div>
             </section>
-
+            
             <!-- SECTION 3: RESULT DISPLAY -->
             <section class="card" id="result-card">
-                <h2>Result</h2>
                 <div id="result-content">
-                    <p class="placeholder-text">Your nutritional analysis will appear here after you submit a meal.</p>
+                    <div class="placeholder-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-.086 5.52a.75.75 0 0 0-1.042.813c1.237 2.24 1.159 4.943-.223 7.098a.75.75 0 1 0 1.2.918c1.69-2.618 1.83-5.933.265-8.829zM15 11.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75z"></path></svg>
+                        <h3>Analysis Output</h3>
+                        <p>Your report will be generated here.</p>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- NEW: Pop-up Modal for User Registration -->
+    <!-- MODAL -->
     <div class="modal-overlay" id="register-modal-overlay">
-        <div class="modal-content">
+        <div class="modal-content card">
             <button class="close-btn" id="close-modal-btn">×</button>
-            <h2>Register New User</h2>
+            <h2>Create New User Profile</h2>
             <form id="new-user-form">
-                <div class="form-group">
+                <div class="input-group">
                     <label for="new-user-name">Full Name</label>
                     <input type="text" id="new-user-name" required>
                 </div>
-                <div class="form-group">
-                    <label for="new-user-age">Age (years)</label>
-                    <input type="number" id="new-user-age" min="1" max="120" required>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="new-user-age">Age</label>
+                        <input type="number" id="new-user-age" min="1" max="120" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="new-user-gender">Gender</label>
+                        <select id="new-user-gender" required>
+                            <option value="" disabled selected>Select...</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="new-user-gender">Gender</label>
-                    <select id="new-user-gender" required>
-                        <option value="" disabled selected>Select...</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
+                <div class="input-row">
+                     <div class="input-group">
+                        <label for="new-user-height">Height (cm)</label>
+                        <input type="number" id="new-user-height" min="50" max="300" step="0.1" required>
+                    </div>
+                     <div class="input-group">
+                        <label for="new-user-weight">Weight (kg)</label>
+                        <input type="number" id="new-user-weight" min="20" max="500" step="0.1" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="new-user-height">Height (cm)</label>
-                    <input type="number" id="new-user-height" min="50" max="300" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="new-user-weight">Weight (kg)</label>
-                    <input type="number" id="new-user-weight" min="20" max="500" step="0.1" required>
-                </div>
-                <div class="form-group">
+                <div class="input-group">
                     <label for="new-user-activity">Activity Level</label>
                     <select id="new-user-activity" required>
-                        <option value="" disabled selected>Select...</option>
-                        <option value="1.2">Sedentary (little/no exercise)</option>
-                        <option value="1.375">Light (1-3 days/week)</option>
-                        <option value="1.55">Moderate (3-5 days/week)</option>
-                        <option value="1.725">Active (6-7 days/week)</option>
-                        <option value="1.9">Very Active (physical job)</option>
+                        <option value="" disabled selected>Select activity level...</option>
+                        <option value="1.2">Sedentary</option>
+                        <option value="1.375">Lightly Active</option>
+                        <option value="1.55">Moderately Active</option>
+                        <option value="1.725">Very Active</option>
+                        <option value="1.9">Extra Active</option>
                     </select>
                 </div>
-                <button type="submit" class="cta-button">Register</button>
+                <button type="submit" class="cta-button">Create Profile</button>
                 <p id="register-status" class="status-message"></p>
             </form>
         </div>
     </div>
-
+    
     <script src="script.js"></script>
 
 </body>
