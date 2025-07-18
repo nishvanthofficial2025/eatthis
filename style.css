@@ -1,127 +1,62 @@
-/* --- THEME & BRANDING: PROFESSIONAL SAAS --- */
 :root {
-    --bg-color: #0A0A0A;
-    --dashboard-bg: #121212;
-    --card-bg: #1A1A1A;
+    --bg-color: #E5E7EB;
+    --dashboard-bg: #111111;
+    --card-bg: #000000;
     --border-color: #2F2F2F;
-    --input-bg: #0A0A0A;
-    
-    --accent-green: #34D399; /* Vibrant, modern green */
+    --input-bg: #1C1C1E;
+    --accent-green: #34D399;
     --accent-green-dark: #29A879;
-
-    --text-primary: #F5F5F5;
+    --text-primary: #FFFFFF;
     --text-secondary: #8E8E93;
-    --text-subtle: #505052;
-    
     --text-error: #FF453A;
-
     --font-main: 'Inter', sans-serif;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: var(--font-main);
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-    min-height: 100vh;
-}
-
-/* --- BACKGROUND TEXTURE --- */
-.grid-background {
-    position: fixed;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* --- MAIN DASHBOARD CONTAINER --- */
-.dashboard-container {
-    width: 100%;
-    max-width: 720px;
-    background-color: var(--dashboard-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 2rem;
-    z-index: 1;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-}
-.brand-title { font-size: 1.5rem; font-weight: 600; }
-.register-btn { display: flex; align-items: center; gap: 0.5rem; background: transparent; border: 1px solid var(--text-subtle); color: var(--text-secondary); padding: 0.5rem 1rem; border-radius: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
-.register-btn:hover { background-color: var(--card-bg); border-color: var(--text-secondary); color: var(--text-primary); }
+body { font-family: var(--font-main); background-color: var(--bg-color); color: var(--text-primary); display: flex; justify-content: center; padding: 3rem; min-height: 100vh; }
+.dashboard-container { width: 100%; max-width: 720px; background-color: var(--dashboard-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 2rem; z-index: 1; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
+.brand-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -1px; }
+.register-btn { display: flex; align-items: center; gap: 0.5rem; background: var(--input-bg); border: none; color: var(--text-primary); padding: 0.6rem 1.2rem; border-radius: 12px; font-weight: 500; cursor: pointer; transition: background-color 0.2s; }
+.register-btn:hover { background-color: #2c2c2e; }
 .register-btn svg { width: 18px; }
-
-/* --- CARDS & FORMS --- */
-.card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; }
+.card { background-color: var(--card-bg); border-radius: 20px; padding: 1.5rem 2rem; }
 #input-card { margin-bottom: 2rem; }
-
-.card-header { margin-bottom: 1.5rem; }
-.card-header h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
-.card-header p { color: var(--text-secondary); font-size: 0.9rem; }
-
+.card-header { margin-bottom: 1.5rem; text-align: center; }
+.card-header h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.25rem; }
+.card-header p { color: var(--text-secondary); }
 .input-group { margin-bottom: 1.25rem; }
 .input-group label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.5rem; }
-.input-group input, .input-group select { width: 100%; padding: 0.75rem 1rem; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 1rem; transition: all 0.2s; }
+.input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-primary); font-size: 1rem; transition: all 0.2s; }
 .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); }
-
-.cta-button { width: 100%; background-color: var(--accent-green); color: var(--bg-color); border: none; border-radius: 12px; padding: 0.875rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+.cta-button { width: 100%; background-color: var(--accent-green); color: var(--card-bg); border: none; border-radius: 12px; padding: 1rem; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 0.2s; margin-top: 0.5rem; }
 .cta-button:hover { background-color: var(--accent-green-dark); }
-
-/* --- SUGGESTIONS --- */
-#suggestions-section { margin-bottom: 2rem; }
-.suggestions-title { color: var(--text-secondary); margin-bottom: 0.75rem; font-weight: 500; }
-.suggestions-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.suggestion-tag { background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-secondary); border-radius: 10px; padding: 0.5rem 1rem; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; }
-.suggestion-tag:hover { background-color: var(--border-color); color: var(--text-primary); }
-
-/* --- RESULT CARD & PLACEHOLDER --- */
-#result-card { min-height: 250px; }
-.placeholder-content { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--text-secondary); height: 100%; min-height: 220px;}
+#result-card { min-height: 300px; padding: 1rem; }
+.placeholder-content { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--text-secondary); height: 100%; min-height: 250px;}
 .placeholder-content svg { width: 36px; height: 36px; margin-bottom: 1rem; opacity: 0.4; }
 .placeholder-content h3 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.25rem; }
-
 .loading, .error { padding: 3rem; text-align: center; font-weight: 500; font-size: 1.1rem; }
 .error { color: var(--text-error); }
-
-/* --- NEW: Results Display Styles --- */
-.results-section-title { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); letter-spacing: 0.5px; }
-
-.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-.metric-card { background-color: var(--dashboard-bg); padding: 1rem; border-radius: 12px; }
-.metric-card .label { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
-.metric-card .value { font-size: 1.5rem; font-weight: 600; color: var(--text-primary); }
-.metric-card .value.calories { color: var(--accent-green); }
-
-.ingredient-list .ingredient-header, .ingredient-list .ingredient-row { display: grid; grid-template-columns: 3fr 1fr 1fr; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
-.ingredient-list .ingredient-header { color: var(--text-secondary); font-size: 0.875rem; font-weight: 500; }
-.ingredient-list .ingredient-header .align-right, .ingredient-list .ingredient-row .align-right { text-align: right; }
-.ingredient-list .ingredient-row .ingredient-name { font-weight: 500; }
-
-.results-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 1.5rem; }
-.customer-info-list .info-item { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-secondary); }
-.customer-info-list .info-item:not(:last-child) { margin-bottom: 0.25rem; }
-.customer-info-list .info-item span { color: var(--text-primary); }
-
-.total-price .label { color: var(--text-secondary); font-size: 1rem; margin-bottom: 0.25rem; }
-.total-price .value { color: var(--accent-green); font-size: 2rem; font-weight: 700; }
-
-
-/* --- MODAL --- */
+.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem; }
+.nutrition-summary-widget { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; padding: 1.5rem; background: var(--dashboard-bg); border-radius: 16px; margin-bottom: 0.5rem; }
+.metric { text-align: left; }
+.metric .label { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem; font-weight: 500; }
+.metric .value { font-size: 2rem; font-weight: 700; color: var(--text-primary); letter-spacing: -1px; }
+.metric.calories .value { font-size: 3rem; color: var(--accent-green); }
+.metric.calories { grid-column: 1 / -1; text-align: center; margin-bottom: 1rem; }
+.ingredients-widget, .customer-info-widget { padding: 1.5rem; background: var(--dashboard-bg); border-radius: 16px; }
+.widget-title { font-weight: 600; color: var(--text-secondary); margin-bottom: 1rem; }
+.list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
+.list-item:last-child { border: none; }
+.list-item .value { color: var(--text-secondary); font-weight: 500; }
+.total-price { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); }
+.total-price .label { font-size: 1.25rem; font-weight: 700; }
+.total-price .value { font-size: 1.5rem; font-weight: 700; color: var(--accent-green); }
+#results-actions-container { display: flex; gap: 1rem; margin-top: 1.5rem; padding: 1rem; }
+.action-button { flex-grow: 1; padding: 0.75rem; font-size: 1rem; font-weight: 600; border-radius: 12px; border: 1px solid var(--border-color); background-color: var(--dashboard-bg); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.action-button:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+.action-button.primary { background-color: var(--accent-green); border-color: var(--accent-green); color: var(--dashboard-bg); }
+.action-button.primary:hover { background-color: var(--accent-green-dark); border-color: var(--accent-green-dark); }
+.action-button:disabled { opacity: 0.6; cursor: not-allowed; }
 .modal-overlay { display: none; align-items: center; justify-content: center; position: fixed; inset: 0; background-color: rgba(0,0,0,0.7); z-index: 1000; backdrop-filter: blur(5px); }
 .modal-content { background-color: var(--dashboard-bg); padding: 1.5rem; max-width: 550px; width: 90%; }
 .modal-content h2 { font-size: 1.5rem; text-align: center; margin-bottom: 2rem; }
@@ -130,3 +65,55 @@ header {
 .status-message { text-align: center; font-weight: 500; margin-top: 1.5rem; height: 1em; }
 .status-message.success { color: var(--accent-green); }
 .status-message.error { color: var(--text-error); }
+/* --- All your existing, working CSS goes here --- */
+
+
+/* --- NEW: NOTIFICATION BANNER STYLES --- */
+.notification-banner {
+    display: none; /* Hidden by default */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification-banner.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification-banner.success {
+    background-color: rgba(52, 211, 153, 0.1);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+.notification-banner.error {
+    background-color: rgba(255, 69, 58, 0.1);
+    border-color: var(--text-error);
+    color: var(--text-error);
+}
+
+.notification-message {
+    font-weight: 500;
+}
+
+.notification-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: color 0.2s;
+}
+.notification-close-btn:hover {
+    color: var(--text-primary);
+}

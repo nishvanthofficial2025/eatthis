@@ -1,0 +1,19 @@
+:root {
+    --bg-color: #0A0A0A;
+    --card-bg: #1A1A1A;
+    --border-color: #2F2F2F;
+    --accent-green: #34D399;
+    --text-primary: #F5F5F5;
+    --text-secondary: #8E8E93;
+    --font-main: 'Inter', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-main); background-color: var(--bg-color); color: var(--text-primary); padding: 3rem; }
+.recipe-container { max-width: 800px; margin: 0 auto; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 2rem 3rem; }
+h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.5rem; }
+.recipe-intro { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+h2 { color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); }
+ul, ol { padding-left: 25px; margin-bottom: 1.5rem; }
+li { margin-bottom: 1rem; line-height: 1.7; color: var(--text-secondary); }
+li::marker { color: var(--accent-green); font-weight: 600; }
+.chef-tip { background-color: var(--bg-color); border-left: 4px solid var(--accent-green); padding: 1.5rem; border-radius: 8px; margin-top: 2rem; font-style: italic; color: var(--text-secondary); }
