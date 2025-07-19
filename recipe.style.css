@@ -1,0 +1,116 @@
+/* recipe.style.css */
+:root {
+    /* Copying the new variables for consistency */
+    --bg-dark: #080a09;
+    --primary-green: #3ff25e;
+    --text-primary: #f0f0f0;
+    --text-secondary: #8a8f98;
+    --card-bg: rgba(28, 30, 34, 0.6);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    padding: 3rem;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Re-using the Green Glow Background --- */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, hsla(135, 95%, 60%, 0.25), transparent 40%),
+                radial-gradient(circle at 80% 20%, hsla(135, 95%, 55%, 0.2), transparent 40%);
+    z-index: 0;
+    animation: pulse 20s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* --- Applying the Glassmorphism Card Style --- */
+.recipe-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2.5rem 3.5rem;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+    color: var(--primary-green); /* Make title stand out */
+}
+
+.recipe-intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+h2 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+ul, ol {
+    padding-left: 25px;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    padding-left: 10px;
+}
+
+li::marker {
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.chef-tip {
+    background-color: rgba(63, 242, 94, 0.05); /* Subtle green background */
+    border-left: 4px solid var(--primary-green);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+    font-style: italic;
+    color: #c4c8d0; /* Lighter secondary text */
+    line-height: 1.7;
+}

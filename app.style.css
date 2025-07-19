@@ -1,0 +1,77 @@
+/* --- THEME & BRANDING: INTELLIGENT LUMINANCE --- */
+:root {
+    --bg-dark: #080a09;
+    --primary-green: #3ff25e;
+    --primary-green-dark: #29d14a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #8a8f98;
+    --text-error: #ff453a;
+    --card-bg: rgba(28, 30, 34, 0.6);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(10, 12, 11, 0.5);
+    --font-main: 'Inter', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-main); background-color: var(--bg-dark); color: var(--text-primary); display: flex; justify-content: center; padding: 1.5rem; min-height: 100vh; overflow-x: hidden; position: relative; }
+body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 30%, hsla(135, 95%, 60%, 0.25), transparent 40%), radial-gradient(circle at 70% 80%, hsla(135, 95%, 55%, 0.2), transparent 40%); z-index: 0; animation: pulse 15s infinite ease-in-out; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+.app-container { width: 100%; max-width: 800px; z-index: 1; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; padding: 0 1rem; }
+.brand-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -1px; }
+.register-btn { display: flex; align-items: center; gap: 0.5rem; background: transparent; border: 1px solid var(--card-border); color: var(--text-secondary); padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 500; cursor: pointer; transition: all 0.2s ease-in-out; }
+.register-btn:hover { background-color: var(--card-bg); color: var(--text-primary); border-color: rgba(255, 255, 255, 0.2); }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2rem; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+#input-card { margin-bottom: 2rem; }
+.card-header { margin-bottom: 2rem; text-align: center; }
+.card-header h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.75rem; line-height: 1.2; }
+.card-header .text-accent { color: var(--primary-green); }
+.card-header p { color: var(--text-secondary); max-width: 400px; margin: 0 auto; }
+.input-group { margin-bottom: 1.25rem; }
+.input-group label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.input-group input, .input-group select { width: 100%; padding: 0.875rem 1rem; background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; color: var(--text-primary); font-size: 1rem; transition: all 0.2s; }
+.input-group input:focus, .input-group select:focus { outline: none; border-color: var(--primary-green); box-shadow: 0 0 0 4px rgba(63, 242, 94, 0.2); }
+.cta-button { width: 100%; background-color: var(--primary-green); color: var(--bg-dark); border: none; border-radius: 12px; padding: 1rem; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease-in-out; margin-top: 1rem; }
+.cta-button:hover { background-color: var(--primary-green-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(63, 242, 94, 0.2); }
+#result-card { min-height: 250px; padding: 1.5rem; display: flex; flex-direction: column; }
+.placeholder-content { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--text-secondary); flex-grow: 1; }
+.placeholder-content h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 0.25rem; }
+.loading, .error { padding: 3rem; text-align: center; font-weight: 500; font-size: 1.1rem; color: var(--text-secondary); }
+.error { color: var(--text-error); }
+.results-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 0.5rem; }
+.nutrition-summary-widget { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1.5rem; padding: 1.5rem; background: rgba(0,0,0,0.2); border-radius: 16px; margin-bottom: 0.5rem; }
+.metric { text-align: left; }
+.metric .label { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.25rem; font-weight: 500; }
+.metric .value { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); letter-spacing: -1px; }
+.metric.calories .value { font-size: 4rem; font-weight: 800; color: var(--primary-green); line-height: 1; }
+.metric.calories { grid-column: 1 / -1; text-align: center; margin-bottom: 1rem; }
+.ingredients-widget, .customer-info-widget { padding: 1.5rem; background: rgba(0,0,0,0.2); border-radius: 16px; }
+.widget-title { font-weight: 600; color: var(--text-primary); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--card-border); }
+.list-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--card-border); font-size: 0.95rem; }
+.list-item:last-child { border: none; }
+.list-item .value { color: var(--text-secondary); font-weight: 500; }
+.total-price { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--card-border); }
+.total-price .label { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+.total-price .value { font-size: 1.5rem; font-weight: 700; color: var(--primary-green); }
+#results-actions-container { display: flex; gap: 1rem; margin-top: 1.5rem; padding: 0 0.5rem; }
+.action-button { flex-grow: 1; padding: 0.85rem; font-size: 0.9rem; font-weight: 600; border-radius: 12px; border: 1px solid var(--card-border); background-color: rgba(0,0,0,0.2); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.action-button:hover { border-color: var(--text-secondary); color: var(--text-primary); background-color: rgba(0,0,0,0.4); }
+.action-button.primary { background-color: var(--primary-green); border-color: var(--primary-green); color: var(--bg-dark); }
+.action-button.primary:hover { background-color: var(--primary-green-dark); border-color: var(--primary-green-dark); color: var(--bg-dark); }
+.action-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.modal-overlay { display: none; align-items: center; justify-content: center; position: fixed; inset: 0; background-color: rgba(0,0,0,0.5); z-index: 1000; backdrop-filter: blur(10px); }
+.modal-content { background: var(--card-bg); border: 1px solid var(--card-border); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 2.5rem; border-radius: 24px; max-width: 550px; width: 90%; position: relative; }
+.modal-content h2 { font-size: 1.75rem; text-align: center; margin-bottom: 2rem; letter-spacing: -1px; }
+.close-btn { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; font-size: 1.2rem; color: var(--text-secondary); background: rgba(0,0,0,0.2); border: 1px solid var(--card-border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.close-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.1); }
+.input-row { display: flex; gap: 1rem; }
+.status-message { text-align: center; font-weight: 500; margin-top: 1.5rem; height: 1em; }
+.status-message.success { color: var(--primary-green); }
+.status-message.error { color: var(--text-error); }
+.notification-banner { display: none; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-radius: 12px; margin: 0 0 2rem 0; border: 1px solid; opacity: 0; transform: translateY(-20px); transition: opacity 0.3s ease, transform 0.3s ease; z-index: 5; background: var(--card-bg); backdrop-filter: blur(10px); }
+.notification-banner.show { display: flex; opacity: 1; transform: translateY(0); }
+.notification-banner.success { border-color: var(--primary-green); color: var(--primary-green); }
+.notification-banner.error { border-color: var(--text-error); color: var(--text-error); }
+.notification-message { font-weight: 600; }
+.notification-close-btn { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; line-height: 1; cursor: pointer; margin-left: 1rem; transition: color 0.2s; }
+.notification-close-btn:hover { color: var(--text-primary); }
+@media (min-width: 768px) { .results-grid { grid-template-columns: 1fr 1fr; } }

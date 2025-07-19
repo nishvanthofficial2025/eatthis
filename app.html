@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eatas — SaaS Nutrition Analyzer</title>
+    <!-- CORRECTED LINK -->
+    <link rel="stylesheet" href="app.style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="aurora-background"></div>
+    <div class="grid-background"></div>
+
+    <div class="app-container">
+        <header>
+            <h1 class="brand-title">eatas</h1>
+            <button class="register-btn" id="register-user-btn">
+                <span>Register User</span>
+            </button>
+        </header>
+
+        <main>
+            <div id="notification-banner" class="notification-banner"></div>
+            
+            <section class="card" id="input-card">
+                <div class="card-header">
+                    <h2>Understand <span class="text-accent">Your Fuel.</span></h2>
+                    <p>Enter a meal description to receive your detailed AI-powered analysis instantly.</p>
+                </div>
+                <form id="meal-form">
+                    <div class="input-group">
+                        <label for="meal-name">Meal Description</label>
+                        <input type="text" id="meal-name" name="mealName" placeholder="e.g., Grilled salmon with roasted asparagus" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="user-name">Registered User Name</label>
+                        <input type="text" id="user-name" name="userName" placeholder="e.g., Alex Ray" required>
+                    </div>
+                    <button type="submit" class="cta-button">Generate Analysis</button>
+                </form>
+            </section>
+            
+            <section class="card" id="result-card">
+                <div id="result-content">
+                    <div class="placeholder-content">
+                        <h3>Analysis Output</h3>
+                        <p>Your report will be generated here.</p>
+                    </div>
+                </div>
+                <div id="results-actions-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL for User Registration -->
+    <div class="modal-overlay" id="register-modal-overlay">
+        <div class="modal-content card">
+            <button class="close-btn" id="close-modal-btn">×</button>
+            <h2 class="modal-title">Create Profile</h2>
+            <form id="new-user-form">
+                 <div class="input-group"><label for="new-user-name">Full Name</label><input type="text" id="new-user-name" required></div>
+                <div class="input-row"><div class="input-group"><label for="new-user-age">Age</label><input type="number" id="new-user-age" min="1" max="120" required></div><div class="input-group"><label for="new-user-gender">Gender</label><select id="new-user-gender" required><option value="" disabled selected>Select</option><option value="male">Male</option><option value="female">Female</option></select></div></div>
+                <div class="input-row"><div class="input-group"><label for="new-user-height">Height (cm)</label><input type="number" id="new-user-height" min="50" max="300" step="0.1" required></div><div class="input-group"><label for="new-user-weight">Weight (kg)</label><input type="number" id="new-user-weight" min="20" max="500" step="0.1" required></div></div>
+                <div class="input-group"><label for="new-user-activity">Activity Level</label><select id="new-user-activity" required><option value="" disabled selected>Select level</option><option value="1.2">Sedentary</option><option value="1.375">Lightly Active</option><option value="1.55">Moderately Active</option><option value="1.725">Very Active</option><option value="1.9">Extra Active</option></select></div>
+                <button type="submit" class="cta-button">Create Profile</button>
+                <p id="register-status" class="status-message"></p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- CORRECTED SCRIPT TAG -->
+    <script src="app.js"></script>
+
+</body>
+</html>
